@@ -1,7 +1,7 @@
 {
   "name": "grunt-git-commit-version",
   "description": "Create a file with that with the last commit hash",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/JiriChara/grunt-git-commit-version",
   "author": {
     "name": "Jiri Chara",
