@@ -18,6 +18,7 @@ grunt.loadNpmTasks('grunt-git-commit-version'');
 
 ## Options
 
+```javascript
 grunt.initConfig({
   grunt_commit_version: {
     options: {
@@ -25,6 +26,7 @@ grunt.initConfig({
     }
   }
 })
+```
 
 ### options.file
 Type: `String`, Default Value: `VERSION`
