@@ -8,25 +8,54 @@
 
 'use strict';
 
-module.exports = function(grunt) {
-  grunt.registerMultiTask('git_commit_version', 'Create a file with that with the last commit hash', function() {
-      var exec = require('child_process').exec,
-          done = this.async(),
-          createVersionFile = function (stdout) {
-              grunt.log.writeln(stdout);
-          };
+var exec = require('child_process').exec;
 
-      grunt.log.writeln('Processing task...');
+module.exports = function (grunt) {
+    var taskName = 'git_commit_version',
+        desc = 'Create a file with that with the last commit hash';
 
-      exec('git rev-parse HEAD', function (err, stdout) {
-          if (err) {
-              grunt.log.error(err);
-              return done(false);
-          }
+    grunt.registerTask(
+        taskName,
+        desc,
+        function() {
+            var options = this.options({
+                file: 'VERSION'
+            });
 
-          createVersionFile(stdout);
+            var done = this.async();
 
-          return done();
-      });
-  });
+            var createVersionFile = function (stdout) {
+                if (grunt.file.exists(options.file)) {
+                    grunt.log.writeln(
+                        'File ' +
+                        options.file +
+                        ' exists (updating...)'
+                    );
+                } else {
+                    grunt.log.writeln(
+                        'File ' +
+                        options.file +
+                        ' does not exist (creating...)'
+                    );
+                }
+
+                grunt.file.write(options.file, stdout);
+
+                grunt.log.writeln('Done c|_|');
+            };
+
+            grunt.log.writeln('Processing task...');
+
+            exec('git rev-parse HEAD', function (err, stdout) {
+                if (err) {
+                    grunt.log.error(err);
+                    return done(false);
+                }
+
+                createVersionFile(stdout);
+
+                return done();
+            });
+        }
+    );
 };
