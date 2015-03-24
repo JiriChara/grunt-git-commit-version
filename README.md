@@ -2,88 +2,29 @@
 
 > Create a file with that with the last commit hash
 
-## Getting Started
-This plugin requires Grunt `~0.4.5`
+it basically creates a file containing last git commit hash in specified file.
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+## Installation
 
 ```shell
-npm install grunt-git-commit-version --save-dev
+grunt install grunt-git-commit-version --save-dev
 ```
 
-Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+Once that's done, add this line to your project's Gruntfile:
 
-```js
-grunt.loadNpmTasks('grunt-git-commit-version');
+```javascript
+grunt.loadNpmTasks('grunt-git-commit-version'');
 ```
 
-## The "git_commit_version" task
+## Options
 
-### Overview
-In your project's Gruntfile, add a section named `git_commit_version` to the data object passed into `grunt.initConfig()`.
-
-```js
 grunt.initConfig({
-  git_commit_version: {
+  grunt_commit_version: {
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-});
-```
+      file: 'VERSION' // path to the file you want to write the last git commit hash
+    }
+  }
+})
 
-### Options
-
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
-
-### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  git_commit_version: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  git_commit_version: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
+### options.file
+Type: `String`, Default Value: `VERSION`
