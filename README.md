@@ -20,7 +20,7 @@ grunt.loadNpmTasks('grunt-git-commit-version'');
 
 ```javascript
 grunt.initConfig({
-  grunt_commit_version: {
+  git_commit_version: {
     options: {
       file: 'VERSION' // path to the file you want to write the last git commit hash
     }
