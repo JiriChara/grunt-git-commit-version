@@ -13,7 +13,7 @@ npm install --save-dev grunt-git-commit-version
 Once that's done, add this line to your project's Gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-git-commit-version'');
+grunt.loadNpmTasks('grunt-git-commit-version');
 ```
 
 ## Options
