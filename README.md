@@ -7,7 +7,7 @@ it basically creates a file containing last git commit hash in specified file.
 ## Installation
 
 ```shell
-grunt install grunt-git-commit-version --save-dev
+npm install --save-dev grunt-git-commit-version
 ```
 
 Once that's done, add this line to your project's Gruntfile:
